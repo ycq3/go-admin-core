@@ -75,8 +75,8 @@ func GetRoleId(c *gin.Context) int {
 
 func GetDeptId(c *gin.Context) int {
 	data := ExtractClaims(c)
-	if data["deptid"] != nil {
-		i := int((data["deptid"]).(float64))
+	if data[jwt.DeptId] != nil {
+		i := int((data[jwt.DeptId]).(float64))
 		return i
 	}
 	fmt.Println(pkg.GetCurrentTimeStr() + " [WARING] " + c.Request.Method + " " + c.Request.URL.Path + " GetDeptId 缺少 deptid")
